@@ -1,2 +1,2 @@
-# ml-stanford
-Machine Learning by Stanford University. Programming assignments.
+# coursera-machinelearning
+Stanford University - Machine Learning by Andrew Ng. Programming assignments.
