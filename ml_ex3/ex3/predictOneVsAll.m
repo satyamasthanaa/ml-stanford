@@ -33,7 +33,12 @@ X = [ones(m, 1) X];
 
 
 
-
+% p=p(:);
+z=X*all_theta';
+%% applying sigmoid function
+h=sigmoid(z);
+%% p1 will give highest value and p will give the index of the highest value
+[p1 p]=max(h,[],2);
 
 
 % =========================================================================

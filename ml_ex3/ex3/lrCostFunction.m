@@ -34,7 +34,22 @@ grad = zeros(size(theta));
 %           temp = theta; 
 %           temp(1) = 0;   % because we don't add anything for j = 0  
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
-%
+grad = zeros(size(theta));
+v1=log(sigmoid(X*theta));
+v2=log(1-sigmoid(X*theta));
+J= -1/m*((y'*v1)+((1-y)'*v2))+((lambda/(2*m))*sum(theta(2:size(theta)).^2));
+
+%  grad = grad + 1/m*(X'*(sigmoid(X*temp)-y)) + (lambda/m)*temp;
+%% As grad(1) only takes the first value of X
+%% ?J(?)/?? = 1/m(sum_iTOm(h?x(i)-y(i))*x(i)(0)
+
+grad(1)= 1/m*(X(:,1)'*(sigmoid(X*theta)-y))
+
+%% rest of grad takes rest all values of X
+%% ?J(?)/?? = 1/m(sum_iTOm(h?x(i)-y(i))*x(i)(j)+ lambda/m * theta(j) where j>=1
+
+grad(2:end)= 1/m*(X(:,2:end)'*(sigmoid(X*theta)-y))+(lambda/m)*theta(2:end)
+
 
 
 

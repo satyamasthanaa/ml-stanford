@@ -23,6 +23,16 @@ p = zeros(size(X, 1), 1);
 
 
 
+%% adding bias unit
+X = [ones(m, 1) X];
+z=X*Theta1';
+h=sigmoid(z);
+%% adding bias unit
+h = [ones(size(h,1), 1) h];
+z1=h*Theta2';
+h1=sigmoid(z1);
+%% pv will give highest value and p will give the index of the highest value
+[pv p]=max(h1,[],2);
 
 
 
